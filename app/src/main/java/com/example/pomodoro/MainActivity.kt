@@ -66,7 +66,7 @@ class MainActivity : AppCompatActivity(), StopwatchListener, LifecycleObserver{
             val startIntent = Intent(this, ForegroundService::class.java)
             startIntent.putExtra(COMMAND_ID, COMMAND_START)
             startIntent.putExtra(STARTED_TIMER_TIME_MS, stopwatches[startedTimerId].stopTime)
-            startIntent.putExtra(SYSTEM_ON_TIMER_START_TIME_MS, stopwatches[startedTimerId].systemStartTime)
+            startIntent.putExtra(SYSTEM_ON_TIMER, stopwatches[startedTimerId].systemStartTime)
             startService(startIntent)
         }
     }

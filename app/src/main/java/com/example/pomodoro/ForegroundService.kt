@@ -50,7 +50,7 @@ class ForegroundService : Service() {
             COMMAND_START -> {
                 val startTime = intent?.extras?.getLong(STARTED_TIMER_TIME_MS) ?: return
                 val systemStartTime =
-                    intent.extras?.getLong(SYSTEM_ON_TIMER_START_TIME_MS) ?: return
+                    intent.extras?.getLong(SYSTEM_ON_TIMER) ?: return
                 commandStart(startTime, systemStartTime)
             }
             COMMAND_STOP -> commandStop()
