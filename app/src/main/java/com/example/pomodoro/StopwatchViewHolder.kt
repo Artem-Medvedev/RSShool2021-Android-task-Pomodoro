@@ -48,6 +48,8 @@ class StopwatchViewHolder(
         binding.customViewOne.setCurrent(0L)
         binding.startPauseButton.isEnabled = false
         binding.blinkingIndicator.isVisible = false
+        val drawable = resources.getDrawable(R.drawable.ic_baseline_pause_24)
+        binding.startPauseButton.setImageDrawable(drawable)
         (binding.blinkingIndicator.background as? AnimationDrawable)?.stop()
         stopwatch.isStarted = false
         timer?.cancel()
@@ -56,6 +58,7 @@ class StopwatchViewHolder(
     private fun startTimer(stopwatch: Stopwatch) {
         val drawable = resources.getDrawable(R.drawable.ic_baseline_pause_24)
         binding.startPauseButton.setImageDrawable(drawable)
+        binding.startPauseButton.isEnabled = true
 
         timer?.cancel()
         timer = getCountDownTimer(stopwatch)
@@ -72,6 +75,7 @@ class StopwatchViewHolder(
     private fun stopTimer() {
         val drawable = resources.getDrawable(R.drawable.ic_baseline_play_arrow_24)
         binding.startPauseButton.setImageDrawable(drawable)
+        binding.startPauseButton.isEnabled = true
 
         timer?.cancel()
 
